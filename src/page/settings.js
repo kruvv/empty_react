@@ -36,9 +36,6 @@ export default class SettingsPage extends React.Component {
             }
         });
         this.setState({
-            notifyResponsible: this.context.settings.NotifyResponsible.Value === 'Y',
-            notifySigner: this.context.settings.NotifySigner.Value === 'Y',
-            subscriptions: this.context.settings.NotificationSubscriptions.Value,
             loading: false,
             admins: admins
         }, () => {
@@ -50,33 +47,6 @@ export default class SettingsPage extends React.Component {
         this.setState({
             admins: selected
         });
-    }
-
-    onChangeNotifyResponsible = (e) => {
-        this.setState({
-            notifyResponsible: e.target.checked
-        });
-    }
-
-    onChangeNotifySigner = (e) => {
-        this.setState({
-            notifySigner: e.target.checked
-        });
-    }
-
-    onChangeSubscription = (item) => {
-        const { subscriptions } = this.state;
-        if (subscriptions.includes(item)) {
-            this.setState({
-                subscriptions: subscriptions.filter(x => x !== item)
-            });
-        }
-        else {
-            subscriptions.push(item);
-            this.setState({
-                subscriptions: subscriptions
-            });
-        }
     }
 
     onSubmit = async (e) => {
@@ -111,13 +81,13 @@ export default class SettingsPage extends React.Component {
                         </div>
                     }
                 </form>
-                <hr />
-                <div className="row mt-4">
-                    <div className="col-12 col-lg-8 col-xl-7 col-xxl-6">
-                        <DomainAuthorization />
-                    </div>
-                </div>
             </div>
         );
     }
+    /* <hr />
+<div className="row mt-4">
+    <div className="col-12 col-lg-8 col-xl-7 col-xxl-6">
+        <DomainAuthorization />
+    </div>
+</div> */
 }

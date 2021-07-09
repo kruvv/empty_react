@@ -27,8 +27,8 @@ export default class UpdatePage extends React.Component {
             'PropFilterSortTable',
             'PropFilterSortData',
             'PropFilterSortUser',
-            'EventKeyONAPPINSTALL',
-            'EventKeyONAPPUNINSTALL'
+            //'EventKeyONAPPINSTALL',
+            //'EventKeyONAPPUNINSTALL'
         ];
         //this.eventHandler = '';
         this.events = [
@@ -80,9 +80,6 @@ export default class UpdatePage extends React.Component {
         switch (key) {
             case 'settings':
                 _.createEntityLog();
-                break;
-            case 'document':
-                _.createEntityUser();
                 break;
             case 'log':
                 _.createEntityFilter();

@@ -173,6 +173,38 @@ class BXRest {
     removePlacementOption(key) {//todo
         delete this.placementInformation.options[key];
     }
+    
+    getUsers(ids) {
+        const _ = this;
+        return new Promise((resolve, reject) => {
+            ids = ids.filter(x => x > 0);
+            var arEntities = {};
+            const arFind = [];
+            ids.forEach((id) => {
+                var entity = _.appCache(CacheType.KeyForUser(id));
+                if (entity) {
+                    arEntities[id] = entity;
+                } else {
+                    arFind.push(id);
+                }
+            });
+
+            if (arFind.length < 1) {
+                resolve(arEntities);
+                return;
+            }
+            _.callMethod('user.get', { 'ID': arFind }, true).then((result) => {
+                result.items.forEach(item => {
+                    const entity = new User(item, Rest.getDomain());
+                    _.appCache(CacheType.KeyForUser(entity.Id), entity);
+                    arEntities[entity.Id] = entity;
+                });
+                resolve(arEntities);
+            }).catch(err => {
+                reject(err);
+            });
+        });
+    }
 }
 
 class CacheType {
