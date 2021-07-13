@@ -189,6 +189,9 @@ export default class App extends React.Component {
   }
 
   render() {
+
+    console.log(Rest.getAuth())
+
     if (this.state.loading) {
       return (
         <div className="app container-fluid my-2">
@@ -199,16 +202,9 @@ export default class App extends React.Component {
       );
     }
 
-    /*
-    return (
-      <div className="app container-fluid my-2">
-        <TestPage />
-      </div>
-    );*/
-
     if (!Rest.isInitComplete()) {
       return (
-        <div className="app container-fluid my-2">This is Sparta! (not bitrix)</div>
+        <div className="app container-fluid my-2">This is Sparta! (not bitrix) 123</div>
       );
     }
 
