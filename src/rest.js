@@ -6,9 +6,9 @@ class BXRest {
         this.cache = {};
         this.resizeTimestamp = 0;
         this.scrollSize = {};
-        this.initComplete = false
+        this.initComplete = false;
         this.placementInformation = false;
-        // this.local = !false;
+        //this.local = !false;
     }
 
     appCache(key, value) {

@@ -189,9 +189,6 @@ export default class App extends React.Component {
   }
 
   render() {
-
-    console.log(Rest.getAuth())
-
     if (this.state.loading) {
       return (
         <div className="app container-fluid my-2">
