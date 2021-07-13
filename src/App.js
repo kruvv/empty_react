@@ -189,6 +189,9 @@ export default class App extends React.Component {
   }
 
   render() {
+
+    console.log(Rest.getAuth())
+
     if (this.state.loading) {
       return (
         <div className="app container-fluid my-2">
@@ -198,13 +201,6 @@ export default class App extends React.Component {
         </div>
       );
     }
-
-    /*
-    return (
-      <div className="app container-fluid my-2">
-        <TestPage />
-      </div>
-    );*/
 
     if (!Rest.isInitComplete()) {
       return (
